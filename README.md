@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # lazy_schedule_2
 
 lazy schedule
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# lazy_schedule_2
+>>>>>>> b4d74c4ccf8742d4ac47690ce8a7f2667045a81e
