@@ -24,15 +24,16 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final storage = Provider.of<Storage>(context, listen: true);
+    //final storage = Provider.of<Storage>(context, listen: true);
     var day = Provider.of<DayProvider>(context, listen: false);
 
     final pageControllerNotifier =
     Provider.of<PageControllerNotifier>(context, listen: false);
     pageController = pageControllerNotifier.pageController;
 
-    final GetSchedule gs = GetSchedule(storage: storage);
-    final ScheduleViewModel schedule = ScheduleViewModel(getSchedule: gs);
+    //final GetSchedule gs = GetSchedule(storage: storage);
+    //final ScheduleViewModel schedule = ScheduleViewModel(getSchedule: gs);
+    final schedule = Provider.of<ScheduleViewModel>(context, listen: true);
 
 
 
@@ -43,7 +44,6 @@ class _MainPageState extends State<MainPage> {
             const StatusRow(),
             WeekRow(),
             FutureBuilder(
-              //future: gs.get(),
               future: schedule.get(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {

@@ -12,11 +12,11 @@ class ScheduleViewModel extends ChangeNotifier{
     var schedule = getSchedule.get();
     return schedule;
 
-
   }
 
   put() async {
     await getSchedule.put();
+    notifyListeners();
   }
 
 }

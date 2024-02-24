@@ -4,7 +4,7 @@ import '../../api/api_util.dart';
 import 'lesson_table.dart';
 
 
-class Storage extends ChangeNotifier {
+class Storage {
   final AppDatabase database;
   final ApiUtil apiUtil;
 
@@ -21,13 +21,14 @@ class Storage extends ChangeNotifier {
     } catch (e) {
       //print('Error occurred: $e');
     } finally {
-      notifyListeners();
+      //notifyListeners();
     }
   }
 
   get() async {
     try {
       List<LessonsTableData> allItems = await database.select(database.lessonsTable).get();
+      print("обновили данные в базе");
       return allItems;
     } catch (e) {
       //print('Error occurred: $e');

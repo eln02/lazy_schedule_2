@@ -3,7 +3,7 @@ import 'package:lazy_schedule_2/data/storage/drift_for_shedule/drift_repository.
 import '../models/lesson.dart';
 import '../models/lesson_mapper.dart';
 
-class GetSchedule extends ChangeNotifier {
+class GetSchedule {
   final Storage storage;
   final LessonMapper lessonMapper = LessonMapper();
 
@@ -15,12 +15,12 @@ class GetSchedule extends ChangeNotifier {
     for (var lesson in data) {
       lesItems.add(lessonMapper.lessonMap(lesson));
     }
-    notifyListeners();
+    //notifyListeners();
     return lesItems;
   }
 
   put() {
     storage.put();
-    notifyListeners();
+    //notifyListeners();
   }
 }

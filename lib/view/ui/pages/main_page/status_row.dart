@@ -19,7 +19,7 @@ class _StatusRowState extends State<StatusRow> {
 
   @override
   Widget build(BuildContext context) {
-    final storage = Provider.of<Storage>(context, listen: true);
+    //final storage = Provider.of<Storage>(context, listen: true);
     final day = Provider.of<DayProvider>(context, listen: false);
 
     final pageControllerNotifier =
@@ -27,11 +27,12 @@ class _StatusRowState extends State<StatusRow> {
     pageController = pageControllerNotifier.pageController;
 
 
-    final GetSchedule gs = GetSchedule(storage: storage);
-    final ScheduleViewModel sc = ScheduleViewModel(getSchedule: gs);
+    //final GetSchedule gs = GetSchedule(storage: storage);
+    //final ScheduleViewModel sc = ScheduleViewModel(getSchedule: gs);
+    final schedule = Provider.of<ScheduleViewModel>(context, listen: true);
 
     getw() async {
-      sc.put();
+      schedule.put();
     }
 
     return Container(
