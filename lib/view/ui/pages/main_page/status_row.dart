@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lazy_schedule_2/data/storage/sharedpref_for_settings/shared_repository.dart';
 import 'package:lazy_schedule_2/view/view_models/schedule_view_model.dart';
 import 'package:provider/provider.dart';
-import '../../../../data/storage/drift_for_shedule/drift_repository.dart';
-import '../../../../domain/use_cases/manage_schedule.dart';
-import '../../../state_management/day_provider.dart';
-import '../../../state_management/page_controller.dart';
+import '../../../view_models/day_provider.dart';
+import '../../../view_models/page_controller.dart';
 
 class StatusRow extends StatefulWidget {
   const StatusRow({super.key});
@@ -19,7 +17,6 @@ class _StatusRowState extends State<StatusRow> {
 
   @override
   Widget build(BuildContext context) {
-    //final storage = Provider.of<Storage>(context, listen: true);
     final day = Provider.of<DayProvider>(context, listen: false);
 
     final pageControllerNotifier =
@@ -27,11 +24,9 @@ class _StatusRowState extends State<StatusRow> {
     pageController = pageControllerNotifier.pageController;
 
 
-    //final GetSchedule gs = GetSchedule(storage: storage);
-    //final ScheduleViewModel sc = ScheduleViewModel(getSchedule: gs);
     final schedule = Provider.of<ScheduleViewModel>(context, listen: true);
 
-    getw() async {
+    updateData() async {
       schedule.put();
     }
 
@@ -52,7 +47,7 @@ class _StatusRowState extends State<StatusRow> {
                   ),
                   IconButton(
                       onPressed: () {
-                        getw();
+                        updateData();
                         value.setTime();
                         pageControllerNotifier.setPage(day.dayNumber);
                       },

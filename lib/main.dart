@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lazy_schedule_2/data/api/api_util.dart';
 import 'package:lazy_schedule_2/domain/use_cases/manage_schedule.dart';
-import 'package:lazy_schedule_2/view/state_management/day_provider.dart';
-import 'package:lazy_schedule_2/view/state_management/page_controller.dart';
+import 'package:lazy_schedule_2/view/view_models/day_provider.dart';
+import 'package:lazy_schedule_2/view/view_models/page_controller.dart';
 import 'package:lazy_schedule_2/view/ui/pages/main_page/main_page.dart';
 import 'package:lazy_schedule_2/view/ui/pages/settings_page/settings_page.dart';
 import 'package:lazy_schedule_2/view/view_models/schedule_view_model.dart';
@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ScheduleViewModel(getSchedule: GetSchedule(storage: Storage(database: AppDatabase(), apiUtil: apiUtil)))),
-        //ChangeNotifierProvider(create: (_) => ),
         ChangeNotifierProvider(create: (_) => DayProvider()),
         ChangeNotifierProvider(create: (_) => PageControllerNotifier()),
         ChangeNotifierProvider(create: (_) => SharedRepository()..init()),

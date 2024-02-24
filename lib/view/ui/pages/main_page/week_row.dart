@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lazy_schedule_2/view/state_management/page_controller.dart';
+import 'package:lazy_schedule_2/view/view_models/page_controller.dart';
 import 'package:provider/provider.dart';
 
-import '../../../state_management/day_provider.dart';
+import '../../../view_models/day_provider.dart';
 
 class WeekRow extends StatefulWidget {
   @override

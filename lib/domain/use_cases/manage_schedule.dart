@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:lazy_schedule_2/data/storage/drift_for_shedule/drift_repository.dart';
 import '../models/lesson.dart';
 import '../models/lesson_mapper.dart';
@@ -19,8 +18,8 @@ class GetSchedule {
     return lesItems;
   }
 
-  put() {
-    storage.put();
+  put() async {
+    await storage.put();
     //notifyListeners();
   }
 }

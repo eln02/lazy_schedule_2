@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +14,6 @@ class LessonContainer extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var p = Provider.of<SharedRepository>(context, listen: true);
-    //Settings set = p.getSettings();
     LessonFilter lf = LessonFilter(sharedRepository: p);
     if (lf.filter(lesson)){
       return Container();

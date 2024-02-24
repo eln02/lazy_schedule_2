@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lazy_schedule_2/domain/use_cases/manage_schedule.dart';
 import 'package:lazy_schedule_2/view/ui/pages/main_page/day_schedule.dart';
 import 'package:lazy_schedule_2/view/ui/pages/main_page/status_row.dart';
 import 'package:lazy_schedule_2/view/ui/pages/main_page/week_row.dart';
 import 'package:lazy_schedule_2/view/view_models/schedule_view_model.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../data/storage/drift_for_shedule/drift_repository.dart';
 import '../../../../domain/models/lesson.dart';
-import '../../../state_management/day_provider.dart';
-import '../../../state_management/page_controller.dart';
+import '../../../view_models/day_provider.dart';
+import '../../../view_models/page_controller.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -24,15 +21,12 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    //final storage = Provider.of<Storage>(context, listen: true);
     var day = Provider.of<DayProvider>(context, listen: false);
 
     final pageControllerNotifier =
     Provider.of<PageControllerNotifier>(context, listen: false);
     pageController = pageControllerNotifier.pageController;
 
-    //final GetSchedule gs = GetSchedule(storage: storage);
-    //final ScheduleViewModel schedule = ScheduleViewModel(getSchedule: gs);
     final schedule = Provider.of<ScheduleViewModel>(context, listen: true);
 
 
