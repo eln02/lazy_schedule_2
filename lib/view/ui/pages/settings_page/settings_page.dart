@@ -69,7 +69,11 @@ class _SettingsPageState extends State<SettingsPage> {
                           value.setShowLec(val ?? false);
                         },
                       ),
-                    )
+                    ),
+                    const Text(
+                      'Скрытые предметы',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ],
                 ),
               );

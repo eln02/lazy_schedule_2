@@ -54,17 +54,35 @@ class SharedRepository extends ChangeNotifier {
 
   List<String> getHiddenLessons() {
     try {
-      return _sharedPrefs.getStringList('hide_les') ?? [];
+      return _sharedPrefs.getStringList('hidden_les') ?? [];
     } catch (e) {
       return [];
     }
   }
 
-
-  Future<void> setHiddenLessons(String lessonID) async{
+  Future<void> setHiddenLessons(String lessonID) async {
     var mas = getHiddenLessons();
-    mas.add(lessonID);
-    await _sharedPrefs.setStringList('items', mas);
+    await _sharedPrefs.setStringList('hidden_les', [...mas, lessonID]);
+    notifyListeners();
   }
+
+  List<String> getHiddenTeachers() {
+    try {
+      return _sharedPrefs.getStringList('hidden_teacher') ?? [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  Future<void> setHiddenTeachers(String teacherID) async {
+    var mas = getHiddenTeachers();
+    await _sharedPrefs.setStringList('hidden_teacher', [...mas, teacherID]);
+    notifyListeners();
+  }
+
+
+
+
+
 
 }

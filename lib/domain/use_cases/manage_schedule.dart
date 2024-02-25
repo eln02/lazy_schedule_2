@@ -14,12 +14,10 @@ class GetSchedule {
     for (var lesson in data) {
       lesItems.add(lessonMapper.lessonMap(lesson));
     }
-    //notifyListeners();
     return lesItems;
   }
 
   put() async {
     await storage.put();
-    //notifyListeners();
   }
 }

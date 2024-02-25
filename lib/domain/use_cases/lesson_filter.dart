@@ -9,10 +9,13 @@ class LessonFilter{
 });
 
   filter(Lesson lesson) {
-    if (!(lesson.kindOfWork == 'Лекции' && sharedRepository.getShowLec())){
-      return false;
-    }
-    return true;
+    bool condition1 = !(lesson.kindOfWork == 'Лекции' && sharedRepository.getShowLec());
+    //не содержится в скрытых преподах
+    bool condition2 = !sharedRepository.getHiddenTeachers().contains(lesson.lecturer);
+    //не содержится в скрытых предметах
+    bool condition3 = !sharedRepository.getHiddenLessons().contains(lesson.discipline);
+
+    return(!(condition1 && condition2 && condition3));
   }
 
 }

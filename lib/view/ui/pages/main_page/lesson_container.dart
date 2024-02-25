@@ -14,6 +14,7 @@ class LessonContainer extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var p = Provider.of<SharedRepository>(context, listen: true);
+    //var d = Provider.of<DialogViewModel>(context, listen: true);
     LessonFilter lf = LessonFilter(sharedRepository: p);
     if (lf.filter(lesson)){
       return Container();
@@ -77,6 +78,7 @@ class LessonContainer extends StatelessWidget {
                   context: context,
                   builder: (BuildContext context) {
                     return CustomDialog(
+                      lesson: lesson,
                       context: context,
                       onClose: () {
                         Navigator.of(context).pop(); // Закрываем диалог

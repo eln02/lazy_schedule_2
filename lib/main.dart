@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lazy_schedule_2/data/api/api_util.dart';
+import 'package:lazy_schedule_2/domain/use_cases/hide_lesson.dart';
 import 'package:lazy_schedule_2/domain/use_cases/manage_schedule.dart';
+import 'package:lazy_schedule_2/view/view_models/alert_dialog_view_model.dart';
 import 'package:lazy_schedule_2/view/view_models/day_provider.dart';
 import 'package:lazy_schedule_2/view/view_models/page_controller.dart';
 import 'package:lazy_schedule_2/view/ui/pages/main_page/main_page.dart';
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ScheduleViewModel(getSchedule: GetSchedule(storage: Storage(database: AppDatabase(), apiUtil: apiUtil)))),
         ChangeNotifierProvider(create: (_) => DayProvider()),
         ChangeNotifierProvider(create: (_) => PageControllerNotifier()),
+        ChangeNotifierProvider(create: (_) => DialogViewModel(hideLesson: HideLesson(sharedRepository: SharedRepository()..init()))),
         ChangeNotifierProvider(create: (_) => SharedRepository()..init()),
       ],
       child: MaterialApp(routes: {
